@@ -23,7 +23,8 @@ export default class Time extends React.Component {
     minTime: PropTypes.object,
     maxTime: PropTypes.object,
     excludeTimes: PropTypes.array,
-    monthRef: PropTypes.object
+    monthRef: PropTypes.object,
+    timeClassName: PropTypes.func
   }
 
   static get defaultProps () {
@@ -51,6 +52,9 @@ export default class Time extends React.Component {
 
   liClasses = (time, currH, currM) => {
     let classes = ['react-datepicker__time-list-item']
+    if (this.props.timeClassName) {
+      classes.push(this.props.timeClassName(time))
+    }
 
     if ((currH === getHour(time)) && (currM === getMinute(time))) {
       classes.push('react-datepicker__time-list-item--selected')

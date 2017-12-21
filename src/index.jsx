@@ -122,7 +122,8 @@ export default class DatePicker extends React.Component {
     timeIntervals: PropTypes.number,
     minTime: PropTypes.object,
     maxTime: PropTypes.object,
-    excludeTimes: PropTypes.array
+    excludeTimes: PropTypes.array,
+    timeClassName: PropTypes.func
   }
 
   static get defaultProps () {
@@ -471,6 +472,7 @@ export default class DatePicker extends React.Component {
       minTime={this.props.minTime}
       maxTime={this.props.maxTime}
       excludeTimes={this.props.excludeTimes}
+      timeClassName={this.props.timeClassName}
       className={this.props.calendarClassName}
       yearDropdownItemNumber={this.props.yearDropdownItemNumber}>
       {this.props.children}
